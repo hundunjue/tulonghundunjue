@@ -8,14 +8,23 @@
         <style>
             body {
                 background-color: white;
+                padding-top: env(safe-area-inset-top);
+                padding-top: constant(safe-area-inset-top);
             }
         </style>
     </head>
 
     <body>
-        获取设备信息示例
+        <h1>获取设备信息示例</h1>
+        <h2>JSB 调用</h2>
         <div id="info"></div>
-        <script>
+
+        <hr/>
+
+        <h2>Cookie 获取</h2>
+        <div id="cookie"></div>
+    </body>
+    <script>
         function setupWebViewJavascriptBridge(callback) {
             if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
             if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
@@ -31,8 +40,9 @@
             bridge.callHandler('jn-device-info', "", function responseCallback(responseData) {
                 console.log("Device Info:", responseData)
                 document.getElementById("info").innerHTML = responseData;
-            })
+            });
         })
+
+        document.getElementById("cookie").innerHTML = document.cookie;
     </script>
-    </body>
 </html>
