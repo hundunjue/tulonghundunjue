@@ -15,8 +15,7 @@
     <body>
         获取设备信息示例
         <div id="info"></div>
-    </body>
-    <script>
+        <script>
         function setupWebViewJavascriptBridge(callback) {
             if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
             if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
@@ -35,4 +34,5 @@
             })
         })
     </script>
+    </body>
 </html>
